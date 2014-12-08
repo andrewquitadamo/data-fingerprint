@@ -110,10 +110,8 @@ button {
           </p>
           <div style="margin:10px">
             <textarea ng-model="dataText" placeholder="copy and paste your TSV here."></textarea>
-			<input type="checkbox" ng-model="iscsv">csv
-			<input type="checkbox" ng-model="istsv">tsv
-			<!--<tt>csv={{iscsv}}</tt><br/>
-			<tt>tsv={{istsv}}</tt><br/>-->
+			<input type="radio" ng-model="data" value="iscsv">CSV
+			<input type="radio" ng-model="data" value="istsv">TSV
             <button ng-click="loadText()"> generate </button>
             <p style="float: right">
               built with love by <a href="http://setosa.io">setosa</a>
@@ -147,11 +145,10 @@ myApp.controller('MainCtrl', function($scope, $window) {
   var tsv = $scope.istsv
   if(file) $scope.loadExample(file)
   var loadText = $scope.loadText = function(text) {
-  	var csv = $scope.iscsv
-	var tsv = $scope.istsv
+  	var datatype = $scope.data
     if(!text) text = $scope.dataText
-	if(tsv) var rows = d3.tsv.parseRows(text)
-	if(csv) var rows = d3.csv.parseRows(text)
+	if(datatype=="istsv") var rows = d3.tsv.parseRows(text)
+	if(datatype=="iscsv") var rows = d3.csv.parseRows(text)
     $scope.dataRows = rows
   }
 })
