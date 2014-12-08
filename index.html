@@ -110,9 +110,9 @@ button {
           </p>
           <div style="margin:10px">
             <textarea ng-model="dataText" placeholder="copy and paste your TSV here."></textarea>
+            <button ng-click="loadText()"> generate </button>
 			<input type="radio" ng-model="data" value="iscsv">CSV
 			<input type="radio" ng-model="data" value="istsv">TSV
-            <button ng-click="loadText()"> generate </button>
             <p style="float: right">
               built with love by <a href="http://setosa.io">setosa</a>
             </p>
@@ -142,7 +142,6 @@ myApp.controller('MainCtrl', function($scope, $window) {
     })
   }
   var file = window.location.hash.slice(1)
-  var tsv = $scope.istsv
   if(file) $scope.loadExample(file)
   var loadText = $scope.loadText = function(text) {
   	var datatype = $scope.data
