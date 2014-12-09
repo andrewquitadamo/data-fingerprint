@@ -101,13 +101,18 @@ button {
       'pointer-events': (!dataRows && !loading) ? 'all' : 'none' }">
       <div class="widget">
         <div class="inside">
-          <h1 style="margin-left: 10px;float:left"> TSV fingerprint </h1>
-          <p style="float:right;margin-right: 10px">
+          <h1 style="margin-left: 10px;float:left;"> TSV fingerprint </h1>
+		  <div style="width:55%; float:right;margin-top:10px">
+          <p style="float:left;margin-right: 10px;margin-top:10px">
             Here are a few examples:
-            <a href="#" ng-click="loadExample('example1.tsv')"> example1.tsv </a>
-            <span>&nbsp;</span>
-            <a href="#" ng-click="loadExample('example2.tsv')"> example2.tsv </a>
-          </p>
+			<div style="float:right;margin-right: 10px;">
+			<a style="float:left;" href="#" ng-click="loadExample('example1.csv')"> example1.csv </a>
+			<a style="float:left; margin-left:10px" href="#" ng-click="loadExample('example2.csv')"> example2.csv </a><br/>
+            <a style="float:left;" href="#" ng-click="loadExample('example1.tsv')"> example1.tsv </a>
+            <a style="float:left;margin-left:10px;" href="#" ng-click="loadExample('example2.tsv')"> example2.tsv </a>
+			</div>
+		  </p>
+		  </div>
           <div style="margin:10px">
             <textarea ng-model="dataText" placeholder="copy and paste your TSV here."></textarea>
             <button ng-click="loadText()"> generate </button>
